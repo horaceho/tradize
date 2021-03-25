@@ -2,9 +2,7 @@
 
 return [
 
-    'info' => [
-        'version' => '0.1',
-    ],
+    // Credit: https://github.com/BYVoid/OpenCC/blob/master/data/dictionary/STCharacters.txt
 
     'sctcs' => [
         "㐷"=>["傌"],

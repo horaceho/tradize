@@ -1,11 +1,6 @@
 # Tradize, for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/horaceho/tradize.svg?style=flat-square)](https://packagist.org/packages/horaceho/tradize)
-[![Build Status](https://img.shields.io/travis/horaceho/tradize/master.svg?style=flat-square)](https://travis-ci.org/horaceho/tradize)
-[![Quality Score](https://img.shields.io/scrutinizer/g/horaceho/tradize.svg?style=flat-square)](https://scrutinizer-ci.com/g/horaceho/tradize)
-[![Total Downloads](https://img.shields.io/packagist/dt/horaceho/tradize.svg?style=flat-square)](https://packagist.org/packages/horaceho/tradize)
-
-Convert a simplified Chinese string to a traditional Chinese array of string(s), for Laravel
+Convert a simplified Chinese string to a traditional Chinese array of string(s)
 
 ## Installation
 
@@ -13,7 +8,7 @@ Convert a simplified Chinese string to a traditional Chinese array of string(s),
 composer require horaceho/tradize
 ```
 
-## Usage
+## Usage examples
 
 ``` php
 app('tradize')->convert('陈艳丽');
@@ -22,13 +17,23 @@ app('tradize')->convert('陈艳丽');
      "陳豔麗",
      "陳艷麗",
    ]
+
+app('tradize')->convert('张小华');
+
+=> [
+     "張小華",
+   ]
 ```
 
-### Testing
+## Testing
 
 ``` bash
 composer test
 ```
+
+## Credit
+
+[BYVoid/OpenCC](https://github.com/BYVoid/OpenCC).
 
 ## License
 
