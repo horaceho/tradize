@@ -6,30 +6,37 @@ use Illuminate\Support\Arr;
 
 class Tradize
 {
-    public function combo($name)
+    public function combo($table, $name)
     {
-        $sctcs = config('tradize.sctcs');
         $chars = preg_split('//u', $name, -1, PREG_SPLIT_NO_EMPTY);
 
         $combo = [];
         $count = 0;
         foreach ($chars as $char) {
-            $combo[$count++] = $sctcs[$char] ?? Arr::wrap($char);
+            $combo[$count++] = $table[$char] ?? Arr::wrap($char);
         }
 
-        return $combo;
+        $names = [];
+        $items = Arr::crossJoin(...$combo);
+        foreach ($items as $item) {
+            $names[] = implode('', $item);
+        }
+
+        return $names;
     }
 
     public function convert($name)
     {
-        $combo = $this->combo($name);
-        $items = Arr::crossJoin(...$combo);
+        $table = config('tradize.sctcs');
+        $names = $this->combo($table, $name);
 
-        $names = [];
+        return $names;
+    }
 
-        foreach ($items as $item) {
-            $names[] = implode('', $item);
-        }
+    public function invert($name)
+    {
+        $table = config('tradize.tcscs');
+        $names = $this->combo($table, $name);
 
         return $names;
     }
