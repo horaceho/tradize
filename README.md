@@ -33,7 +33,7 @@ composer test
 
 ## Credit
 
-[BYVoid/OpenCC](https://github.com/BYVoid/OpenCC).
+[BYVoid/OpenCC](https://github.com/BYVoid/OpenCC) `data/dictionary/STCharacters.txt`
 
 ## License
 
